@@ -1,0 +1,34 @@
+%same-style {
+    border: 1px solid rebeccapurple;
+    padding: 10px;
+    color: greenyellow;
+}
+
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+form {
+    @extend %same-style;
+    font: $font-stack;
+    color: $primary-color;
+
+    input {
+        padding: 5px 20px;
+        width: 100%;
+        line-height: 16px;
+        margin: 10px 0;
+    }
+    [type=submit] {
+        background:rgb(214, 24, 24); 
+        border:0 none;
+        cursor:pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px; 
+
+        &:hover{
+            background: aqua;
+        }
+    }
+}
+
+
