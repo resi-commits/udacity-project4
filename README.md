@@ -19,6 +19,13 @@ For this project you'll need some terminal commands to actually test it:
   * with `npm start` you can start the server (it listens on port 8081)
 * besides, you can execute the test cases to check if all functions in `../src/client/js/` are working as expected: you can run `npm run test` on the terminal
 
+Additionally, you will need to create an `.env` file that includes your API Key to access the MeaningCloud API. You can create your account [here](https://www.meaningcloud.com/developer/create-account), after that you can check [here](https://www.meaningcloud.com/developer/account/subscriptions) for your API Key.
+
+The structure of your `.env` file should look like this:
+```env
+API_KEY=xxxxxxxxxx
+```
+
 ## Technologies
 Multiple technologies are used in this project:
 * Setting up Webpack
