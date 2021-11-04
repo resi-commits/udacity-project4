@@ -3,37 +3,45 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
-    Client.checkForName(formText)
+    if (Client.checkForURL(formText)) {
+        console.log("::: Form Submitted :::")
+        requestMeaning('http://192.168.200.1:8081/meaning', {url: formText}).then((data)=>{
+            updateUI(data);
+            })
+    } else {
+        alert('Please enter a valid URL into the field!')
+    }
+}
 
-    console.log("::: Form Submitted :::")
-    getWeather(event).then(()=>{
-        updateUI();
-        })
+
+const requestMeaning = async (url = "", data = {}) => {
+    console.log(url, data)
+    const res = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+    try {
+        console.log(res)
+        return await res.json()
+    } catch(error) {
+        console.log('error', error);
     }
+}
+// async function to get all data stored in the projectData
+const updateUI = async (data)=>{
+    console.log(data)
+    document.getElementById('url').innerHTML = `You requested this URL: ${data.url}`;
+    document.getElementById('scoreTag').innerHTML = `Score Tag: ${data.scoreTag}`;
+    document.getElementById('agreement').innerHTML = `Agreement: ${data.agreement}`;
+    document.getElementById('confidence').innerHTML = `Confidence: ${data.confidence}`;
+    document.getElementById('irony').innerHTML = `Irony: ${data.irony}`;
+    document.getElementById('subjectivity').innerHTML = `Subjectivity: ${data.subjectivity}`;
+}
     
-    const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=71069&units=metric'
-    const apiKey = '&appid=fedf4384c03e6130b3fd1de93c0832b8'
-    
-    let d = new Date();
-    let newDate = d.getDate()+'.'+ (d.getMonth()+1)+'.'+ d.getFullYear();
-    
-    let data = [];
-    const getWeather = async (event) =>{
-        const res = await fetch(baseURL+apiKey)
-        try {
-          data = await res.json();
-          // console.log(data);
-        } catch(error) {
-          console.log("error", error);
-        }
-    }
       
-    // async function to get all data stored in the projectData
-    const updateUI = async ()=>{
-        document.getElementById('results').innerHTML = data.main.temp;
     
-    }
-    
-      
-    
-    export { handleSubmit }
+export { handleSubmit }

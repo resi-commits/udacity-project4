@@ -1,0 +1,21 @@
+%result-style {
+  color: rgb(11, 9, 44);
+  font-family: 'Zen Kurenaido', 'serif';
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+section {
+  @extend %result-style;
+  b {
+    @extend %result-style;
+    font-weight: bold;
+  }
+  #results{
+    div{
+      @extend %result-style;
+      // padding: 10px;
+    }
+    
+  }
+}

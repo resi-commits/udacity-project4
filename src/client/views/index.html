@@ -3,35 +3,51 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
+        <link href="https://fonts.googleapis.com/css?family=Zen+Kurenaido" rel="stylesheet"> 
     </head>
 
     <body>
 
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+            <h1>
+                Evaluate a News Article with Natural Processing Language 
+            </h1>
+            <div class="description">
+                <p>This tool will evaluate an URL, e.g. a news article, with Natural Processing Language using the MeaningCloud API.</p>
+                <p>The URL will be investigated based on the following key figures:</p>
+                <ul> 
+                    <li><b>Score Tag</b>: it analyzes the polarity of the text in the URL, possible values can be <i>strong positive</i> to <i>strong negative</i> or <i>without polarity</i>.</li>
+                    <li><b>Agreement</b>: marks the agreement between the sentiments detected in the url, it has two possible values: <i>AGREEMENT</i> for same polarity and <i>DISAGREEMENT</i></li>
+                    <li><b>Subjectivity</b>: marks the subjectivity of the text, the values can be <i>OBJECTIVE</i> or <i>SUBJECTIVE</i></li>
+                    <li><b>Confidence</b>: represents the confidence, its value is an integer number in <i>0-100 range</i></li>
+                    <li><b>Irony:</b>: indicates the irony of the text on the page, the values can be <i>NONIRONIC</i> and <i>IRONIC</i></li>
+                </ul>
             </div>
         </header>
 
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Enter a valid URL here">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
             <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+                <b>Your results of the Natural Processing Language will be displayed below.</b>
+                <div id="results">
+                    <div id=url></div>
+                    <div id=scoreTag></div>
+                    <div id=agreement></div>
+                    <div id=confidence></div>
+                    <div id=irony></div>
+                    <div id=subjectivity></div>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>This is a tool created by Theresa Adam. Copyright 2021.</p>
         </footer>
 
     </body>

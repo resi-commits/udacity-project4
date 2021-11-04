@@ -1,32 +1,49 @@
 %same-style {
-    border: 1px solid rebeccapurple;
+    border: 1px solid rgb(192, 176, 192);
     padding: 10px;
-    color: greenyellow;
+    color: rgb(11, 9, 44);
+    font-family: 'Zen Kurenaido', 'serif';
+    font-size: 20px;
+    border-radius: 5px;
 }
 
-$font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 
 form {
     @extend %same-style;
-    font: $font-stack;
     color: $primary-color;
+    background-color: rgb(11, 9, 44);
+    width: 100%;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
 
     input {
+        @extend %same-style;
         padding: 5px 20px;
         width: 100%;
         line-height: 16px;
         margin: 10px 0;
+
     }
     [type=submit] {
-        background:rgb(214, 24, 24); 
+        background: rgb(173, 145, 173); 
         border:0 none;
-        cursor:pointer;
+        width: 100%;
+        cursor: pointer;
         -webkit-border-radius: 5px;
         border-radius: 5px; 
 
         &:hover{
-            background: aqua;
+            background: rgb(192, 176, 192);
+            font-weight: bold;
+            box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
+        }
+        &:focus{
+            background: rgb(173, 145, 173);
+        }
+        &:visited{
+            background:rgb(214, 24, 24); 
         }
     }
 }
