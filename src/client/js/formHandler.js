@@ -5,7 +5,7 @@ function handleSubmit(event) {
     let formText = document.getElementById('name').value
     if (Client.checkForURL(formText)) {
         console.log("::: Form Submitted :::")
-        requestMeaning('http://192.168.200.1:8081/meaning', {url: formText}).then((data)=>{
+        requestMeaning('/meaning', {url: formText}).then((data)=>{
             updateUI(data);
             })
     } else {
